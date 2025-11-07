@@ -64,11 +64,12 @@ export default function Hero() {
       className="min-h-screen flex items-center justify-center relative overflow-hidden snap-section"
     >
 
+ 
       {/* Hero Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in-up">
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6">
-            <span className="text-foreground">Hey, I'm</span>
+            <span className="text-foreground text-5xl">Hey, I'm</span>
             <br />
             <span className="text-[#8D162A]">
               Kalynovskyi Danylo

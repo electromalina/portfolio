@@ -1,7 +1,7 @@
 import Navigation from "@/app/components/Navigation";
 import Hero from "@/app/components/Hero";
 import About from "@/app/components/About";
-import TechStack from "@/app/components/TechStack";
+import Passion from "@/app/components/Passion";
 import Skills from "@/app/components/Skills";
 import Projects from "@/app/components/Projects";
 import Contact from "@/app/components/Contact";
@@ -13,17 +13,17 @@ export default function HomePage() {
       <main className="pt-24">
         <Hero />
         <About />
-        <TechStack />
+        <Passion />
         <Skills />
         <Projects />
         <Contact />
       </main>
       
       {/* Footer */}
-      <footer className="glass-nav py-8 mt-20">
+      <footer>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-foreground/60 text-sm">
-            © {new Date().getFullYear()} Portfolio. Built with Next.js and Tailwind CSS.
+             Kalynovskyi Danylo. Built with Next.js in Fontys University. © {new Date().getFullYear()}
           </p>
         </div>
       </footer>
