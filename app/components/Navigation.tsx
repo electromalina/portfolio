@@ -154,31 +154,6 @@ export default function Navigation() {
             </motion.a>
           </li>
         ))}
-        
-        {/* Admin Link REMOVE AFTER DEVELOPMENT */}
-        <li>
-          <motion.a
-            href="/admin"
-            className="relative text-foreground/80 hover:text-primary font-medium transition-colors px-3 py-2 rounded-2xl overflow-hidden group"
-            whileHover={{ 
-              scale: 1.05, 
-              y: -2,
-              boxShadow: "0 8px 25px rgba(0,0,0,0.1)"
-            }}
-            whileTap={{ scale: 0.95, y: 0 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 18 }}
-          >
-            <motion.div
-              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
-              style={{
-                background: "linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1))",
-                backdropFilter: "blur(10px)",
-                border: "1px solid rgba(255,255,255,0.3)",
-              }}
-            />
-            <span className="relative z-10">Admin</span>
-          </motion.a>
-        </li>
       </ul>
 
       {/* Mobile menu button */}
@@ -348,26 +323,6 @@ export default function Navigation() {
                   </motion.a>
                 </motion.li>
               ))}
-              
-              {/* Admin link in mobile menu */}
-              <motion.li
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  delay: navLinks.length * 0.1,
-                  duration: 0.3,
-                  ease: "easeOut"
-                }}
-                className="w-full"
-              >
-                <Link
-                  href="/admin"
-                  onClick={() => setMenuOpen(false)}
-                  className="block w-full text-center text-foreground font-medium transition-all px-6 py-3 text-lg rounded-3xl relative overflow-hidden"
-                >
-                  <span className="relative z-10">Admin</span>
-                </Link>
-              </motion.li>
             </ul>
           </motion.div>
         )}

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 const titles = [
   "Front-end developer",
+  "Fontys University Student",
   "UX/UI designer",
   "Web Developer",
 ];
