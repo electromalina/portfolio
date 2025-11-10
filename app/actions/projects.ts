@@ -23,6 +23,9 @@ export type Project = {
   content: string | null;
   tags: string[] | null;
   cover_url: string | null;
+  demo_url: string | null;
+  github_url: string | null;
+  show_demo_button: boolean;
   is_hidden: boolean;
   created_at: string;
   updated_at: string;
@@ -55,6 +58,9 @@ export async function createProject(formData: FormData) {
     const content = formData.get("content") as string;
     const tagsInput = formData.get("tags") as string;
     const cover_url = formData.get("cover_url") as string;
+    const demo_url = formData.get("demo_url") as string;
+    const github_url = formData.get("github_url") as string;
+    const show_demo_button = formData.get("show_demo_button") === "on";
     const is_hidden = formData.get("is_hidden") === "on";
   
     // Convert comma-separated tags to array
@@ -68,6 +74,10 @@ export async function createProject(formData: FormData) {
     const slug = generateSlug(title);
     const sanitizedCoverUrl =
       cover_url && cover_url.trim() !== "" ? cover_url : DEFAULT_COVER_URL;
+    const sanitizedDemoUrl =
+      demo_url && demo_url.trim() !== "" ? demo_url.trim() : null;
+    const sanitizedGithubUrl =
+      github_url && github_url.trim() !== "" ? github_url.trim() : null;
   
     // Insert into database
     const { error } = await supabase.from("projects").insert({
@@ -77,6 +87,9 @@ export async function createProject(formData: FormData) {
       content: content || null,
       tags: tags.length > 0 ? tags : null,
       cover_url: sanitizedCoverUrl,
+      demo_url: sanitizedDemoUrl,
+      github_url: sanitizedGithubUrl,
+      show_demo_button,
       is_hidden,
     });
   
@@ -102,6 +115,9 @@ export async function updateProject(id: string, formData: FormData) {
     const content = formData.get("content") as string;
     const tagsInput = formData.get("tags") as string;
     const cover_url = formData.get("cover_url") as string;
+    const demo_url = formData.get("demo_url") as string;
+    const github_url = formData.get("github_url") as string;
+    const show_demo_button = formData.get("show_demo_button") === "on";
     const is_hidden = formData.get("is_hidden") === "on";
   
     const tags = tagsInput
@@ -114,6 +130,10 @@ export async function updateProject(id: string, formData: FormData) {
     const slug = generateSlug(title);
     const sanitizedCoverUrl =
       cover_url && cover_url.trim() !== "" ? cover_url : DEFAULT_COVER_URL;
+    const sanitizedDemoUrl =
+      demo_url && demo_url.trim() !== "" ? demo_url.trim() : null;
+    const sanitizedGithubUrl =
+      github_url && github_url.trim() !== "" ? github_url.trim() : null;
   
     const { error } = await supabase
       .from("projects")
@@ -124,6 +144,9 @@ export async function updateProject(id: string, formData: FormData) {
         content: content || null,
         tags: tags.length > 0 ? tags : null,
         cover_url: sanitizedCoverUrl,
+        demo_url: sanitizedDemoUrl,
+        github_url: sanitizedGithubUrl,
+        show_demo_button,
         is_hidden,
       })
       .eq("id", id);

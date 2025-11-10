@@ -95,6 +95,57 @@ export default function NewProjectPage() {
           />
         </div>
 
+        <div>
+          <label
+            htmlFor="demo_url"
+            className="block text-sm font-medium text-zinc-700 dark:text-zinc-300"
+          >
+            Demo URL
+          </label>
+          <input
+            type="url"
+            name="demo_url"
+            id="demo_url"
+            placeholder="https://example.com/demo"
+            className="mt-1 block w-full rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-zinc-900 dark:text-zinc-100 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+          />
+          <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
+            Provide a live demo link. Toggle below to hide if needed.
+          </p>
+        </div>
+
+        <div>
+          <label
+            htmlFor="github_url"
+            className="block text-sm font-medium text-zinc-700 dark:text-zinc-300"
+          >
+            GitHub URL
+          </label>
+          <input
+            type="url"
+            name="github_url"
+            id="github_url"
+            placeholder="https://github.com/username/repo"
+            className="mt-1 block w-full rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-zinc-900 dark:text-zinc-100 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+          />
+        </div>
+
+        <div className="flex items-center">
+          <input
+            type="checkbox"
+            name="show_demo_button"
+            id="show_demo_button"
+            defaultChecked
+            className="h-4 w-4 rounded border-zinc-300 dark:border-zinc-700 text-blue-600 focus:ring-blue-500"
+          />
+          <label
+            htmlFor="show_demo_button"
+            className="ml-2 block text-sm text-zinc-700 dark:text-zinc-300"
+          >
+            Show demo button
+          </label>
+        </div>
+
         <div className="flex items-center">
           <input
             type="checkbox"

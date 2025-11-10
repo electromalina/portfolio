@@ -33,8 +33,8 @@ export default function Passion() {
 
           <div className="glass-card rounded-3xl overflow-hidden w-full max-w-xl lg:max-w-md xl:max-w-lg mx-auto shadow-lg">
             <iframe
-              src="https://open.spotify.com/embed/playlist/37i9dQZF1EVJHK7Q1TBABQ?utm_source=generator"
-              title="Spotify playlist: Upbeat Mix"
+              src="https://open.spotify.com/embed/playlist/2FlK0lSTgJMojzUpEK89D5?utm_source=generator"
+              title="Spotify playlist: Keep Going"
               loading="lazy"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               className="w-full h-[380px] md:h-[420px]"

@@ -1,5 +1,4 @@
 import { createServer } from "@/lib/supabase/server";
-import Link from "next/link";
 import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
 
@@ -148,20 +147,27 @@ export default async function Projects() {
 
                       {/* Action Buttons */}
                       <div className="flex items-center gap-4">
-                        <Link
-                          href={`/project/${project.slug}`}
-                          className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary-light transition-colors duration-300 focus:outline-none focus:ring-0 focus-visible:outline-none"
-                        >
-                          <span>@ demo</span>
-                        </Link>
-                        <a
-                          href={`https://github.com`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-foreground/5 hover:bg-foreground/10 border border-foreground/10 transition-colors duration-300 focus:outline-none focus:ring-0 focus-visible:outline-none"
-                        >
-                          <FaGithub className="w-5 h-5 text-foreground/70" />
-                        </a>
+                        {(project.show_demo_button ?? Boolean(project.demo_url)) &&
+                          project.demo_url && (
+                            <a
+                              href={project.demo_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary-light transition-colors duration-300 focus:outline-none focus:ring-0 focus-visible:outline-none"
+                            >
+                              <span>@ demo</span>
+                            </a>
+                          )}
+                        {project.github_url && (
+                          <a
+                            href={project.github_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-foreground/5 hover:bg-foreground/10 border border-foreground/10 transition-colors duration-300 focus:outline-none focus:ring-0 focus-visible:outline-none"
+                          >
+                            <FaGithub className="w-5 h-5 text-foreground/70" />
+                          </a>
+                        )}
                       </div>
                     </div>
                   </div>
