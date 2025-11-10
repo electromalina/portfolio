@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const navLinks = [
@@ -46,7 +45,7 @@ export default function Navigation() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: showNavbar ? 1 : 0, y: showNavbar ? 0 : -20 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
-      className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[90vw] max-w-3xl rounded-3xl shadow-glass flex items-center justify-between px-6 md:px-8 py-3 md:py-4 border overflow-hidden"
+      className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[90vw] max-w-3xl rounded-3xl shadow-glass flex items-center justify-between px-6 md:px-8 py-3 md:py-4 border relative overflow-visible md:overflow-hidden"
       style={{
         background: "linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))",
         backdropFilter: "blur(20px)",
