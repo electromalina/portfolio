@@ -35,9 +35,9 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen flex items-center px-4 sm:px-6 lg:px-8 snap-section"
+      className="min-h-screen flex items-center px-4 sm:px-6 lg:px-8 snap-section py-24"
     >
-      <div className="text-center mb-8 w-full">
+      <div className="text-center mb-12 w-full">
         <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
           Get In <span className="text-primary">Touch</span>
         </h2>
@@ -70,14 +70,14 @@ export default function Contact() {
       </div>
 
       <div className="w-full">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {contactMethods.map((method, index) => (
             <a
               key={index}
               href={method.href}
               target={method.href.startsWith("http") ? "_blank" : undefined}
               rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="glass-card rounded-2xl p-8 md:p-10 text-center hover:border-primary/50 hover:glow-primary hover:scale-105 transition-transform duration-300 focus:outline-none min-h-[140px]"
+              className="glass-card rounded-2xl p-6 sm:p-8 md:p-10 text-center hover:border-primary/50 hover:glow-primary hover:scale-[1.02] transition-transform duration-300 focus:outline-none min-h-[160px] sm:min-h-[140px]"
             >
               <div className="text-primary mb-4 flex justify-center">
                 {method.icon}

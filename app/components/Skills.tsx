@@ -77,7 +77,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="min-h-screen flex items-center px-4 sm:px-6 lg:px-8 snap-section"
+      className="min-h-screen flex items-center px-4 sm:px-6 lg:px-8 snap-section my-20"
     >
       <div className="max-w-7xl mx-auto w-full">
         <div className="text-center mb-16">
@@ -104,25 +104,29 @@ export default function Skills() {
           ))}
         </div>
 
-        <div
-          key={activeCategory}
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8 max-w-5xl mx-auto"
-        >
-          {activeSkills.items.map((item) => {
-            const IconComponent = item.icon;
+        <div className="max-w-5xl mx-auto w-full">
+          <div className="relative">
+            <div
+              key={activeCategory}
+              className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 min-h-[320px] sm:min-h-[280px] lg:min-h-[240px] content-start"
+            >
+              {activeSkills.items.map((item) => {
+                const IconComponent = item.icon;
 
-            return (
-              <div
-                key={item.name}
-                className="group flex flex-col items-center justify-center gap-2 sm:gap-3 text-center transition-colors duration-300"
-              >
-                <span className="text-sm font-medium tracking-wide text-foreground/80 uppercase transition-colors duration-300 group-hover:text-primary">
-                  {item.name}
-                </span>
-                <IconComponent className="w-10 h-10 sm:w-14 sm:h-14 text-foreground/70 transition-colors duration-300 group-hover:text-primary" />
-              </div>
-            );
-          })}
+                return (
+                  <div
+                    key={item.name}
+                    className="group flex flex-col items-center justify-center gap-2 sm:gap-3 text-center transition-colors duration-300"
+                  >
+                    <span className="text-sm font-medium tracking-wide text-foreground/80 uppercase transition-colors duration-300 group-hover:text-primary">
+                      {item.name}
+                    </span>
+                    <IconComponent className="w-10 h-10 sm:w-14 sm:h-14 text-foreground/70 transition-colors duration-300 group-hover:text-primary" />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>
