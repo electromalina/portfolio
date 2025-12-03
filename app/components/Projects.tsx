@@ -20,7 +20,7 @@ export default async function Projects() {
       className="min-h-screen flex items-center py-20 px-4 sm:px-6 lg:px-8 snap-section"
     >
       <div className="max-w-7xl mx-auto w-full">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 projects-title">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             My <span className="text-primary">Projects</span>
           </h2>
@@ -46,7 +46,7 @@ export default async function Projects() {
             </p>
           </div>
         ) : (
-          <div className="space-y-12 md:space-y-16">
+          <div className="space-y-12 md:space-y-16 projects-container">
             {projects.map((project, index) => {
               const isEven = index % 2 === 0;
               const imageOrderClasses = isEven
@@ -63,7 +63,7 @@ export default async function Projects() {
               return (
                 <div
                   key={project.id}
-                  className="relative min-h-[400px] md:min-h-[500px]"
+                  className="relative min-h-[400px] md:min-h-[500px] project-item"
                 >
                 <div className="relative grid md:grid-cols-2 gap-8 items-center project-hover-container">
                   {/* Image Section - Left */}

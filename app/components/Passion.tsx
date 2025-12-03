@@ -1,4 +1,11 @@
+"use client";
+
+import { useFadeInLeft, useFadeInRight } from "@/app/hooks/useScrollAnimation";
+
 export default function Passion() {
+  const textRef = useFadeInLeft(0, 1, "top 80%");
+  const spotifyRef = useFadeInRight(0.3, 1, "top 80%");
+
   return (
     <section
       id="passion"
@@ -6,7 +13,7 @@ export default function Passion() {
     >
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid gap-12 lg:gap-16 xl:gap-20 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,0.85fr)] items-center">
-          <div className="space-y-8 lg:space-y-10">
+          <div ref={textRef as React.RefObject<HTMLDivElement>} className="space-y-8 lg:space-y-10">
             <div className="space-y-4">
               <h2 className="text-4xl md:text-5xl font-bold text-primary">
                 Passion
@@ -31,7 +38,7 @@ export default function Passion() {
             </p>
           </div>
 
-          <div className="glass-card rounded-3xl overflow-hidden w-full max-w-xl lg:max-w-md xl:max-w-lg mx-auto shadow-lg">
+          <div ref={spotifyRef as React.RefObject<HTMLDivElement>} className="glass-card rounded-3xl overflow-hidden w-full max-w-xl lg:max-w-md xl:max-w-lg mx-auto shadow-lg">
             <iframe
               src="https://open.spotify.com/embed/playlist/2FlK0lSTgJMojzUpEK89D5?utm_source=generator"
               title="Spotify playlist: Keep Going"

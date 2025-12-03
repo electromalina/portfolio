@@ -1,4 +1,10 @@
+"use client";
+
+import { useFadeInUp, useStaggerAnimation } from "@/app/hooks/useScrollAnimation";
+
 export default function Contact() {
+  const titleRef = useFadeInUp(0, 1, "top 80%");
+  const cardsRef = useStaggerAnimation("a", 0.15, "top 75%");
   const contactMethods = [
     {
       icon: (
@@ -38,7 +44,7 @@ export default function Contact() {
       className="min-h-screen flex items-center px-4 sm:px-6 lg:px-8 snap-section py-24"
     >
       <div className="text-center mb-12 w-full">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+        <h2 ref={titleRef as React.RefObject<HTMLHeadingElement>} className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
           Get In <span className="text-primary">Touch</span>
         </h2>
 
@@ -70,7 +76,7 @@ export default function Contact() {
       </div>
 
       <div className="w-full">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div ref={cardsRef as React.RefObject<HTMLDivElement>} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {contactMethods.map((method, index) => (
             <a
               key={index}

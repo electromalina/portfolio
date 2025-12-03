@@ -32,10 +32,42 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
-  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Smooth scrolling with momentum */
+* {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Improve scroll performance */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior-y: none;
   scroll-behavior: smooth;
 }
 
@@ -158,4 +190,24 @@ html {
   .snap-section {
     scroll-snap-align: start;
   }
+}
+
+/* Scroll-Triggered Pinned/Stacking Effect (dna.inc style) */
+.scroll-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--background);
+}
+
+/* Smooth stacking effect */
+.scroll-container {
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Ensure sections maintain their content visibility */
+.scroll-section > * {
+  position: relative;
+  z-index: 1;
 }

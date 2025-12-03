@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { IconType } from "react-icons";
+import { useFadeInUp, useStaggerAnimation } from "@/app/hooks/useScrollAnimation";
 import {
   SiAdobexd,
   SiAdobephotoshop,
@@ -73,6 +74,9 @@ export default function Skills() {
     useState<SkillCategoryKey>("frontend");
 
   const activeSkills = skillCategories[activeCategory];
+  const titleRef = useFadeInUp(0, 1, "top 80%");
+  const buttonsRef = useStaggerAnimation("button", 0.1, "top 80%");
+  const skillsRef = useStaggerAnimation("> div", 0.08, "top 80%");
 
   return (
     <section
@@ -80,13 +84,13 @@ export default function Skills() {
       className="min-h-screen flex items-center px-4 sm:px-6 lg:px-8 snap-section my-20"
     >
       <div className="max-w-7xl mx-auto w-full">
-        <div className="text-center mb-16">
+        <div ref={titleRef as React.RefObject<HTMLDivElement>} className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             Skills & <span className="text-primary">Expertise</span>
           </h2>
         </div>
 
-        <div className="flex justify-center gap-3 sm:gap-4 mb-12 flex-wrap">
+        <div ref={buttonsRef as React.RefObject<HTMLDivElement>} className="flex justify-center gap-3 sm:gap-4 mb-12 flex-wrap">
           {(["frontend", "backend", "design"] as const).map((category) => (
             <button
               key={category}
@@ -107,6 +111,7 @@ export default function Skills() {
         <div className="max-w-5xl mx-auto w-full">
           <div className="relative">
             <div
+              ref={skillsRef as React.RefObject<HTMLDivElement>}
               key={activeCategory}
               className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 min-h-[320px] sm:min-h-[280px] lg:min-h-[240px] content-start"
             >

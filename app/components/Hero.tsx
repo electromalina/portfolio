@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useOnMountAnimation } from "@/app/hooks/useScrollAnimation";
 
 const titles = [
   "Front-end developer",
@@ -59,6 +60,12 @@ function TypingAnimation() {
 }
 
 export default function Hero() {
+  const heroContentRef = useOnMountAnimation(0, 1.2, 50);
+  const titleRef = useOnMountAnimation(0.2, 1, 50);
+  const subtitleRef = useOnMountAnimation(0.4, 1, 50);
+  const buttonsRef = useOnMountAnimation(0.6, 1, 50);
+  const scrollIndicatorRef = useOnMountAnimation(0.8, 1, 50);
+
   return (
     <section
       id="hero"
@@ -67,9 +74,9 @@ export default function Hero() {
 
  
       {/* Hero Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in-up">
+      <div ref={heroContentRef as React.RefObject<HTMLDivElement>} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6">
+          <h1 ref={titleRef as React.RefObject<HTMLHeadingElement>} className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6">
             <span className="text-foreground text-5xl">Hey, I'm</span>
             <br />
             <span className="text-[#8D162A]">
@@ -77,11 +84,11 @@ export default function Hero() {
             </span>
           </h1>
           
-          <div className="mb-12 min-h-[2rem] md:min-h-[2.5rem] lg:min-h-[3rem] flex items-center justify-center">
+          <div ref={subtitleRef as React.RefObject<HTMLDivElement>} className="mb-12 min-h-[2rem] md:min-h-[2.5rem] lg:min-h-[3rem] flex items-center justify-center">
             <TypingAnimation />
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div ref={buttonsRef as React.RefObject<HTMLDivElement>} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <motion.a
               href="#projects"
               className="relative px-8 py-4 rounded-full font-medium text-foreground overflow-hidden group"
@@ -176,7 +183,7 @@ export default function Hero() {
 
 
         {/* Scroll Indicator */}
-        <div className="mt-16 animate-bounce">
+        <div ref={scrollIndicatorRef as React.RefObject<HTMLDivElement>} className="mt-16 animate-bounce">
           <a
             href="#about"
             className="inline-flex flex-col items-center gap-2 text-foreground/50 hover:text-primary transition-colors"

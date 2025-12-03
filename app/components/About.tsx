@@ -1,6 +1,13 @@
+"use client";
+
 import Image from "next/image";
+import { useFadeInLeft, useFadeInRight, useFadeInUp } from "@/app/hooks/useScrollAnimation";
 
 export default function About() {
+  const imageRef = useFadeInLeft(0, 1, "top 80%");
+  const titleRef = useFadeInUp(0.2, 1, "top 80%");
+  const textRef = useFadeInRight(0.4, 1, "top 80%");
+
   return (
     <section
       id="about"
@@ -9,7 +16,7 @@ export default function About() {
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid md:grid-cols-2 gap-12 items-stretch">
           {/* Image Section (left) */}
-          <div className="relative flex items-center">
+          <div ref={imageRef as React.RefObject<HTMLDivElement>} className="relative flex items-center">
             <div className="relative aspect-square w-full max-w-xs mx-auto">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl blur-2xl" />
               <div className="relative glass-card-static rounded-3xl overflow-hidden h-full w-full">
@@ -26,11 +33,11 @@ export default function About() {
 
           {/* Content Section (right) - aligned to match image height */}
           <div className="flex flex-col justify-between py-4">
-            <h2 className="text-4xl md:text-5xl font-bold mb-2 text-foreground">
+            <h2 ref={titleRef as React.RefObject<HTMLHeadingElement>} className="text-4xl md:text-5xl font-bold mb-2 text-foreground">
               About <span className="text-primary">Me</span>
             </h2>
 
-            <p className="text-lg text-foreground/70 leading-relaxed">
+            <p ref={textRef as React.RefObject<HTMLParagraphElement>} className="text-lg text-foreground/70 leading-relaxed">
               Passionate media design student specializing mainly in front-end web
               development and UI/UX design. Experienced in developing brandings,
               creating high-fidelity prototypes, conducting project research, and
