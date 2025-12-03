@@ -71,8 +71,6 @@ export default function Hero() {
       id="hero"
       className="min-h-screen flex items-center justify-center relative overflow-hidden snap-section"
     >
-
- 
       {/* Hero Content */}
       <div ref={heroContentRef as React.RefObject<HTMLDivElement>} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
@@ -135,14 +133,15 @@ export default function Hero() {
               <span className="relative z-10">View My Work</span>
             </motion.a>
             <motion.a
-              href="#contact"
-              className="relative px-8 py-4 rounded-full font-medium text-foreground overflow-hidden group"
+              href="/cv.pdf"
+              download
+              className="relative px-8 py-4 rounded-full font-medium text-background overflow-hidden group"
               style={{
-                background: "linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))",
+                background: "linear-gradient(135deg, rgba(141, 22, 42, 0.9), rgba(179, 29, 58, 0.8))",
                 backdropFilter: "blur(20px)",
                 WebkitBackdropFilter: "blur(20px)",
-                border: "1px solid rgba(255,255,255,0.2)",
-                boxShadow: "0 8px 32px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.1)"
+                border: "1px solid rgba(141, 22, 42, 0.3)",
+                boxShadow: "0 8px 32px rgba(141, 22, 42, 0.3), inset 0 1px 0 rgba(255,255,255,0.1)"
               }}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
@@ -150,7 +149,10 @@ export default function Hero() {
             >
               {/* Animated background gradient */}
               <div 
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 button-gradient-animate transition-opacity duration-500"
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{
+                  background: "linear-gradient(135deg, rgba(179, 29, 58, 1), rgba(141, 22, 42, 0.9))",
+                }}
               />
               {/* Floating particles */}
               <div className="absolute inset-0 overflow-hidden rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -177,7 +179,22 @@ export default function Hero() {
                   />
                 ))}
               </div>
-              <span className="relative z-10">Get In Touch</span>
+              <span className="relative z-10 flex items-center gap-2">
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                  />
+                </svg>
+                Download CV
+              </span>
             </motion.a>
           </div>
 

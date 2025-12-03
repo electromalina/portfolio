@@ -8,14 +8,16 @@ import ProjectsClient from "@/app/components/ProjectsClient";
 import Contact from "@/app/components/Contact";
 import ScrollToTop from "@/app/components/ScrollToTop";
 import ScrollEffects from "@/app/components/ScrollEffects";
+import WaveBackground from "@/app/components/WaveBackground";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-background text-foreground snap-container">
+    <div className="min-h-screen bg-background text-foreground snap-container relative">
+      <WaveBackground />
       <ScrollEffects />
       <ScrollToTop />
       <Navigation />
-      <main className="pt-24">
+      <main className="pt-24 relative z-10">
         <Hero />
         <About />
         <Passion />
@@ -26,7 +28,7 @@ export default function HomePage() {
       </main>
       
       {/* Footer */}
-      <footer>
+      <footer className="relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-foreground/60 text-sm">
              Kalynovskyi Danylo. Built with Next.js in Fontys University. © {new Date().getFullYear()}

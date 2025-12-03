@@ -153,6 +153,49 @@ body {
   }
 }
 
+/* Loading.io Style Wave Animation - Left to Right */
+@keyframes waveMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.loading-wave-container {
+  animation: waveMove 20s linear infinite;
+}
+
+.wave-layer-1 {
+  animation: waveMove 20s linear infinite;
+  opacity: 0.9;
+}
+
+.wave-layer-2 {
+  animation: waveMove 25s linear infinite;
+  opacity: 0.85;
+  animation-delay: -3s;
+}
+
+.wave-layer-3 {
+  animation: waveMove 30s linear infinite;
+  opacity: 0.8;
+  animation-delay: -6s;
+}
+
+.wave-layer-4 {
+  animation: waveMove 35s linear infinite;
+  opacity: 0.75;
+  animation-delay: -9s;
+}
+
+.wave-layer-5 {
+  animation: waveMove 18s linear infinite;
+  opacity: 0.7;
+  animation-delay: -12s;
+}
+
 
 /* Project Hover Effects */
 /* When image is hovered: image goes to foreground, text goes to background */

@@ -87,58 +87,103 @@ export default function Navigation() {
           ))}
         </div>
 
-        <ul className="hidden md:flex gap-2 sm:gap-4 md:gap-6 mx-auto relative z-10">
-          {navLinks.map((link) => (
-            <li key={link.name}>
-              <motion.a
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="relative text-foreground/80 hover:text-primary font-medium transition-colors px-3 py-2 rounded-2xl overflow-hidden group"
-                whileHover={{
-                  scale: 1.05,
-                  y: -2,
-                  boxShadow: "0 8px 25px rgba(0,0,0,0.1)",
-                }}
-                whileTap={{ scale: 0.95, y: 0 }}
-                transition={{ type: "spring", stiffness: 300, damping: 18 }}
-              >
-                <motion.div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
-                  style={{
-                    background: "linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1))",
-                    backdropFilter: "blur(10px)",
-                    border: "1px solid rgba(255,255,255,0.3)",
+        <div className="hidden md:flex items-center gap-4 mx-auto relative z-10">
+          <ul className="flex gap-2 sm:gap-4 md:gap-6">
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <motion.a
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="relative text-foreground/80 hover:text-white font-medium transition-colors px-3 py-2 rounded-2xl overflow-hidden group"
+                  whileHover={{
+                    scale: 1.05,
+                    y: -2,
+                    boxShadow: "0 8px 25px rgba(0,0,0,0.1)",
                   }}
+                  whileTap={{ scale: 0.95, y: 0 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 18 }}
+                >
+                  <motion.div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
+                    style={{
+                      background: "linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1))",
+                      backdropFilter: "blur(10px)",
+                      border: "1px solid rgba(255,255,255,0.3)",
+                    }}
+                  />
+
+                  <div className="absolute inset-0 overflow-hidden rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {[...Array(3)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        className="absolute w-0.5 h-0.5 bg-white/60 rounded-full"
+                        style={{
+                          left: `${30 + i * 20}%`,
+                          top: `${40 + (i % 2) * 20}%`,
+                        }}
+                        animate={{
+                          y: [-3, -8, -3],
+                          opacity: [0.3, 0.8, 0.3],
+                        }}
+                        transition={{
+                          duration: 1.5 + i * 0.2,
+                          repeat: Infinity,
+                          delay: i * 0.1,
+                          ease: "easeInOut",
+                        }}
+                      />
+                    ))}
+                  </div>
+
+                  <span className="relative z-10">{link.name}</span>
+                </motion.a>
+              </li>
+            ))}
+          </ul>
+          
+          {/* Download CV Button */}
+          <motion.a
+            href="/cv.pdf"
+            download
+            className="relative px-4 py-2 rounded-xl font-medium text-background overflow-hidden group ml-4"
+            style={{
+              background: `linear-gradient(135deg, rgba(${primaryRgb},0.9), rgba(${primaryLightRgb},0.8))`,
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
+              border: `1px solid rgba(${primaryRgb},0.3)`,
+              boxShadow: "0 4px 16px rgba(0,0,0,0.1)",
+            }}
+            whileHover={{
+              scale: 1.05,
+              y: -2,
+            }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300, damping: 18 }}
+          >
+            <motion.div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style={{
+                background: `linear-gradient(135deg, rgba(${primaryLightRgb},1), rgba(${primaryRgb},0.9))`,
+              }}
+            />
+            <span className="relative z-10 flex items-center gap-2">
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
                 />
-
-                <div className="absolute inset-0 overflow-hidden rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {[...Array(3)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute w-0.5 h-0.5 bg-white/60 rounded-full"
-                      style={{
-                        left: `${30 + i * 20}%`,
-                        top: `${40 + (i % 2) * 20}%`,
-                      }}
-                      animate={{
-                        y: [-3, -8, -3],
-                        opacity: [0.3, 0.8, 0.3],
-                      }}
-                      transition={{
-                        duration: 1.5 + i * 0.2,
-                        repeat: Infinity,
-                        delay: i * 0.1,
-                        ease: "easeInOut",
-                      }}
-                    />
-                  ))}
-                </div>
-
-                <span className="relative z-10">{link.name}</span>
-              </motion.a>
-            </li>
-          ))}
-        </ul>
+              </svg>
+              Download CV
+            </span>
+          </motion.a>
+        </div>
 
         <div className="md:hidden flex items-center relative z-10">
           <button
@@ -310,6 +355,51 @@ export default function Navigation() {
                       </motion.a>
                     </motion.li>
                   ))}
+                  {/* Download CV Button in Mobile Menu */}
+                  <motion.li
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      delay: navLinks.length * 0.1,
+                      duration: 0.3,
+                      ease: "easeOut",
+                    }}
+                    className="w-full mt-2"
+                  >
+                    <motion.a
+                      href="/cv.pdf"
+                      download
+                      onClick={() => setMenuOpen(false)}
+                      className="block w-full text-center text-background font-medium transition-all px-6 py-3 text-lg rounded-3xl relative overflow-hidden"
+                      style={{
+                        background: `linear-gradient(135deg, rgba(${primaryRgb},0.9), rgba(${primaryLightRgb},0.8))`,
+                        boxShadow: `0 4px 16px rgba(${primaryRgb},0.3)`,
+                      }}
+                      whileHover={{
+                        scale: 1.05,
+                        boxShadow: `0 8px 25px rgba(${primaryRgb},0.5)`,
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 18 }}
+                    >
+                      <span className="relative z-10 flex items-center justify-center gap-2">
+                        <svg
+                          className="w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                          />
+                        </svg>
+                        Download CV
+                      </span>
+                    </motion.a>
+                  </motion.li>
                 </ul>
               </div>
             </motion.div>

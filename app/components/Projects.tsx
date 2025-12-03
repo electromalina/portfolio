@@ -46,7 +46,7 @@ export default async function Projects() {
             </p>
           </div>
         ) : (
-          <div className="space-y-12 md:space-y-16 projects-container">
+          <div className="space-y-20 md:space-y-28 projects-container">
             {projects.map((project, index) => {
               const isEven = index % 2 === 0;
               const imageOrderClasses = isEven
