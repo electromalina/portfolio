@@ -143,7 +143,7 @@ export default function Navigation() {
           
           {/* Download CV Button */}
           <motion.a
-            href="/cv.pdf"
+            href="/CV.pdf"
             download
             className="relative px-4 py-2 rounded-xl font-medium text-background overflow-hidden group ml-4"
             style={{
@@ -367,7 +367,7 @@ export default function Navigation() {
                     className="w-full mt-2"
                   >
                     <motion.a
-                      href="/cv.pdf"
+                      href="/CV.pdf"
                       download
                       onClick={() => setMenuOpen(false)}
                       className="block w-full text-center text-background font-medium transition-all px-6 py-3 text-lg rounded-3xl relative overflow-hidden"

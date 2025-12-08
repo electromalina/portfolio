@@ -133,7 +133,7 @@ export default function Hero() {
               <span className="relative z-10">View My Work</span>
             </motion.a>
             <motion.a
-              href="/cv.pdf"
+              href="/CV.pdf"
               download
               className="relative px-8 py-4 rounded-full font-medium text-background overflow-hidden group"
               style={{
